@@ -1,10 +1,10 @@
 import { KiteConnect } from "kiteconnect";
 
-const apiKey = "75y22u3kl0bjnvt2";
-const accessToken= "hwn1a57C7pW0bWBMcAV1OEwVg2QxMWJv";
+const apiKey = "75y22";
+const accessToken= "JPmFXo0Y1lokv5wWsuonT7ser08EsX07";
 
 const kc = new KiteConnect({ api_key: apiKey });
-console.log(kc.getLoginURL());
+// console.error(kc.getLoginURL()); // Commented out - this breaks MCP
 
 export async function placeOrder(tradingsymbol:string,quantity:number,type:"BUY" | "SELL"){
     try{
@@ -19,7 +19,6 @@ export async function placeOrder(tradingsymbol:string,quantity:number,type:"BUY"
         });
     }
     catch(err){
-            console.log(err);
-        }
+        console.error("Order placement error:", err); // Added error logging
     }
-    
+}
